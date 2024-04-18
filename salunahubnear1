@@ -3508,7 +3508,7 @@ end)
                     for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
                         if v.Name == "CannonBall" then
                 for i,d in pairs(game.Players:GetChildren()) do
-                    if d.Name ~= game.Players.LocalPlayer.Name then
+                    if d.Name ~= game.Players.LocalPlayer.Name then wait(0,2)
                             v.CFrame = d.Character.HumanoidRootPart.CFrame
                             v.CanCollide = false
                        d.Character.HumanoidRootPart.Transparency = 0.9
