@@ -42,18 +42,12 @@ spawn(function()
         pcall(function()
             if _G.autocannonplr then
                 repeat task.wait(0)
-                for i,v in pairs(game.Players:GetChildren()) do
-                    if v.Name ~= game.Players.LocalPlayer.Name then
-                        v.Character.HumanoidRootPart.Transparency = 0.9
-                    	v.Character.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
-                        v.Character.HumanoidRootPart.CanCollide = false
-                        v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+for i,v in pairs(game.Players:GetChildren()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
                     for i, c in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
                         if c.Name == "CannonBall" then
-                        c.CFrame = v.Character.HumanoidRootPart.CFrame
- c.CanCollide = false
-end
-end
+                            c.CFrame = v.HumanoidRootPart.CFrame
+                            c.CanCollide = false
                             if not c:FindFirstChild("BodyClip") then
                                 local Noclip = Instance.new("BodyVelocity")
                                 Noclip.Name = "BodyClip"
@@ -61,11 +55,6 @@ end
                                 Noclip.MaxForce = Vector3.new(100000,100000,100000)
                                 Noclip.Velocity = Vector3.new(0,20,0)
                             end
-                        if v.Character.Humanoid.Health == 0 then
-                            v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
-                            v.Character.HumanoidRootPart.Transparency = 1
-end
-                           
                         end
                     end
                 until _G.autocannonplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
