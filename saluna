@@ -3353,7 +3353,12 @@ page9:Toggle("Cannon Farm All Player", false, function(daxccc)
                     	v.Character.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
                         v.Character.HumanoidRootPart.CanCollide = false
                         v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
-                        v.Character.HumanoidRootPart.CFrame = CFrame.new(100, 3000, 800)
+                   for i, c in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
+                        if c.Name == "CannonBall" then
+c.CFrame =  v.Character.HumanoidRootPart.CFrame
+end
+end
+                        
                         if v.Character.Humanoid.Health == 0 then
                             v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
                             v.Character.HumanoidRootPart.Transparency = 1
