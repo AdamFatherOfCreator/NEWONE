@@ -3397,10 +3397,10 @@ end)
 spawn(function()
     while task.wait(0) do
         pcall(function()
-            if _G.autocannon or _G.autocannonplr or _G.autocannonslow then
+            if _G.autocannon or _G.autocannonslow then
                 repeat task.wait(0)
                     for i, v in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
-                        if v.Name == "CannonBall" then
+                        if v.Name == "CannonBall" then wait(0,2)
                             v.CFrame = CFrame.new(100, 3000, 800)
                             v.CanCollide = false
                             if not v:FindFirstChild("BodyClip") then
@@ -3511,6 +3511,14 @@ end)
                     if d.Name ~= game.Players.LocalPlayer.Name then
                             v.CFrame = d.Character.HumanoidRootPart.CFrame
                             v.CanCollide = false
+                       d.Character.HumanoidRootPart.Transparency = 0.9
+                    	d.Character.HumanoidRootPart.Color = Color3.fromRGB(255, 255, 255)
+                        d.Character.HumanoidRootPart.CanCollide = false
+                        d.Character.HumanoidRootPart.Size = Vector3.new(100, 100, 100)
+                        if d.Humanoid.Health == 0 then
+                            d.HumanoidRootPart.Size = Vector3.new(0, 0, 0)
+                            d:Destroy()
+end
 end
 end
                         end
