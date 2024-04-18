@@ -54,6 +54,8 @@ if v.Name ~= game.Players.LocalPlayer.Name then
                                 Noclip.Parent = c
                                 Noclip.MaxForce = Vector3.new(100000,100000,100000)
                                 Noclip.Velocity = Vector3.new(0,20,0)
+end
+end
                             end
                         end
                     end
