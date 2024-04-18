@@ -51,20 +51,21 @@ spawn(function()
                     for i, c in pairs(game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:GetChildren()) do
                         if c.Name == "CannonBall" then
                         c.CFrame = v.Character.HumanoidRootPart.CFrame
+ c.CanCollide = false
+                            if not c:FindFirstChild("BodyClip") then
+                                local Noclip = Instance.new("BodyVelocity")
+                                Noclip.Name = "BodyClip"
+                                Noclip.Parent = c
+                                Noclip.MaxForce = Vector3.new(100000,100000,100000)
+                                Noclip.Velocity = Vector3.new(0,20,0)
+                            end
 end
 end
                         if v.Character.Humanoid.Health == 0 then
                             v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
                             v.Character.HumanoidRootPart.Transparency = 1
 end
-                            game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CFrame.CanCollide = false
-                            if not game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall").CFrame:FindFirstChild("BodyClip") then
-                                local Noclip = Instance.new("BodyVelocity")
-                                Noclip.Name = "BodyClip"
-                                Noclip.Parent = game.workspace.ResourceHolder["Resources_" .. game.Players.LocalPlayer.UserId]:FindFirstChild("CannonBall")
-                                Noclip.MaxForce = Vector3.new(100000,100000,100000)
-                                Noclip.Velocity = Vector3.new(0,20,0)
-                            end
+                           
                         end
                     end
                 until _G.autocannonplr == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0
